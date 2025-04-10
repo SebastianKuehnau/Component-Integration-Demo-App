@@ -1,51 +1,86 @@
 # Component Integration Demo App
 
-This project can be used as a starting point to create your own Vaadin application with Spring Boot.
-It contains all the necessary configuration and some placeholder files to get you started.
+This demo project showcases different ways to integrate various types of HTML elements and web components into a Vaadin Flow application. It covers native HTML elements, custom Web Components, React components, and plain JavaScript-based elements. An example with widget has not been considered.
 
-## Running the application
+## 🔧 Getting Started
 
-Open the project in an IDE. You can download the [IntelliJ community edition](https://www.jetbrains.com/idea/download) if you do not have a suitable IDE already.
-Once opened in the IDE, locate the `Application` class and run the main method using "Debug".
+1. Open the project in your IDE (e.g., IntelliJ).
+2. Locate the `Application.java` class.
+3. Run the main method using “Debug”.
+4. (Optional) Install the Vaadin IntelliJ plugin and use “Debug with HotswapAgent” for instant Java updates in the browser.
 
-For more information on installing in various IDEs, see [how to import Vaadin projects to different IDEs](https://vaadin.com/docs/latest/getting-started/import).
+---
 
-If you install the Vaadin plugin for IntelliJ, you should instead launch the `Application` class using "Debug using HotswapAgent" to see updates in the Java code immediately reflected in the browser.
+## 📦 What This Project Demonstrates
 
-## Deploying to Production
+### ✅ Potential Elements in a Web Application
 
-The project is a standard Maven project. To create a production build, call 
+| Type                  | Description                                                                 |
+|-----------------------|-----------------------------------------------------------------------------|
+| **HTML Native Elements**  | Built-in elements like `<button>`, `<canvas>`, `<select>`                |
+| **Custom Web Components** | Shadow DOM–based, framework-independent, reusable                         |
+| **Embedded Widgets**      | External iframes/scripts (e.g., YouTube, chat)                            |
+| **Framework Components**  | React/Vue/Angular—framework-specific, rendered via adapter                |
+| **Vaadin Components**     | Java-backed components, built on Web Component standard                   |
 
-```
-./mvnw clean package -Pproduction
-```
+---
 
-If you have Maven globally installed, you can replace `./mvnw` with `mvn`.
+## 📂 Integration Examples in This App
 
-This will build a JAR file with all the dependencies and front-end resources,ready to be run. The file can be found in the `target` folder after the build completes.
-You then launch the application using 
-```
-java -jar target/component-integration-demo-app-1.0-SNAPSHOT.jar
-```
+### 1. **HTML Native Elements**
 
-## Project structure
+Implemented via Vaadin’s `Element` API. Example: add native html components such as `<input>` and `<button>` as well as drawing on a `<canvas>` and listening to JS events.
 
-- `MainLayout.java` in `src/main/java` contains the navigation setup (i.e., the
-  side/top bar and the main menu). This setup uses
-  [App Layout](https://vaadin.com/docs/components/app-layout).
-- `views` package in `src/main/java` contains the server-side Java views of your application.
-- `views` folder in `src/main/frontend` contains the client-side JavaScript views of your application.
-- `themes` folder in `src/main/frontend` contains the custom CSS styles.
+➡️ `NativeHtmlView.java`
 
-## Useful links
+---
 
-- Read the documentation at [vaadin.com/docs](https://vaadin.com/docs).
-- Follow the tutorial at [vaadin.com/docs/latest/tutorial/overview](https://vaadin.com/docs/latest/tutorial/overview).
-- Create new projects at [start.vaadin.com](https://start.vaadin.com/).
-- Search UI components and their usage examples at [vaadin.com/docs/latest/components](https://vaadin.com/docs/latest/components).
-- View use case applications that demonstrate Vaadin capabilities at [vaadin.com/examples-and-demos](https://vaadin.com/examples-and-demos).
-- Build any UI without custom CSS by discovering Vaadin's set of [CSS utility classes](https://vaadin.com/docs/styling/lumo/utility-classes). 
-- Find a collection of solutions to common use cases at [cookbook.vaadin.com](https://cookbook.vaadin.com/).
-- Find add-ons at [vaadin.com/directory](https://vaadin.com/directory).
-- Ask questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/vaadin) or join our [Forum](https://vaadin.com/forum).
-- Report issues, create pull requests in [GitHub](https://github.com/vaadin).
+### 2. **Vanilla JS Integration (via Element API)**
+
+JS component initialized with `window.init(this)` and controlled via `callJsFunction`.
+
+#### 🔄 Connector vs. Web Component Approach
+
+| Feature                        | JS Connector (`SpinWheelWrapper`) | Web Component (`SpinWheelComponent`) |
+|--------------------------------|-----------------------------------|--------------------------------------|
+| Uses `<script>` init           | ✅                                | ❌                                   |
+| Uses `<custom-element>` tag    | ❌                                | ✅                                   |
+| Encapsulation (Shadow DOM)     | ❌                                | ✅                                   |
+| Reusability outside Vaadin     | ❌                                | ✅                                   |
+| Works well for quick demo      | ✅                                | ⚠️                                   |
+| Preferred for production       | ❌                                | ✅                                   |
+
+➡️ `SpinWheelWrapper.java` and `spin-wheel-wrapper.js` (Java Script initialized component)
+
+➡️ `SpinWheelComponent.java` and `spin-wheel-component.js` (Integration as WebComponent)
+
+➡️ `VanillaJsView.java`
+
+---
+
+### 3. **Embedded Widget**
+
+E.g. `<model-viewer>` to embed 3D models using a third-party Web Component. Installed via npm and used like a regular Vaadin component.
+
+➡️ `ModelViewer.java` and `WebComponentView.java`
+
+---
+
+### 4. **React Component**
+
+Using the `ReactAdapterElement` (in React) and `ReactAdapterComponent` (in Java) API (Vaadin 24.4+). Example with `rc-slider`.
+
+➡️ `ReactSlider.java`, `react-slider.tsx`, and `ReactComponentView.java`
+
+---
+
+## 📚 Resources
+
+- [Vaadin Web Component Integration Guide](https://vaadin.com/docs/latest/flow/create-ui/web-components)
+- [Vaadin React Integration](https://vaadin.com/docs/latest/flow/integrations/react)
+- [model-viewer by Google](https://modelviewer.dev/)
+- [Start a Vaadin project](https://start.vaadin.com/)
+
+---
+
+Explore the code, run the examples, and use the approach that fits your needs!
