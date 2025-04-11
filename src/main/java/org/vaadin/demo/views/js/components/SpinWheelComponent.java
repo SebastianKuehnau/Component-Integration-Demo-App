@@ -1,4 +1,4 @@
-package org.vaadin.demo.views.js;
+package org.vaadin.demo.views.js.components;
 
 
 import com.vaadin.flow.component.Component;
@@ -36,7 +36,7 @@ public class SpinWheelComponent extends Component implements HasSize {
      * Triggers the spin animation with a randomized rotation duration.
      */
     public void spin() {
-        this.getElement().callJsFunction("spin", (3000 + Math.random() * 3000));
+        getElement().callJsFunction("spin", (3000 + Math.random() * 3000));
     }
 
 }

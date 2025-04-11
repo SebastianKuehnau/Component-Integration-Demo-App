@@ -22,7 +22,7 @@ import org.vaadin.lineawesome.LineAwesomeIconUrl;
   custom drawing logic using the browser's Canvas API.
  */
 @PageTitle("Native HTML Element")
-@Route("")
+@Route("native-html")
 @Menu(icon = LineAwesomeIconUrl.INTERNET_EXPLORER)
 public class NativeHtmlView extends VerticalLayout {
 
@@ -57,7 +57,6 @@ public class NativeHtmlView extends VerticalLayout {
         attachEvent.getUI().getElement().executeJs("""
               const canvas = document.getElementById("myCanvas");
               const ctx = canvas.getContext("2d");
-              
               const button = { x: 50, y: 30, width: 100, height: 40 };
           
               function drawButton() {

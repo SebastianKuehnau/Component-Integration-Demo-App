@@ -50,7 +50,7 @@ JS component initialized with `window.init(this)` and controlled via `callJsFunc
 | Works well for quick demo      | ✅                                | ⚠️                                   |
 | Preferred for production       | ❌                                | ✅                                   |
 
-➡️ `SpinWheelWrapper.java` and `spin-wheel-wrapper.js` (Java Script initialized component)
+➡️ `SpinWheelWrapper.java` and `spin-wheel-connector.js` (Java Script initialized component)
 
 ➡️ `SpinWheelComponent.java` and `spin-wheel-component.js` (Integration as WebComponent)
 

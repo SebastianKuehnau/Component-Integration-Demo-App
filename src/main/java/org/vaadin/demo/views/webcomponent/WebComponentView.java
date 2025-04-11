@@ -4,6 +4,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouteAlias;
 import org.vaadin.lineawesome.LineAwesomeIconUrl;
 
 /**
@@ -17,7 +18,8 @@ import org.vaadin.lineawesome.LineAwesomeIconUrl;
  * a Java component that can be used like any other Vaadin UI element.
  */
 @PageTitle("Web Component")
-@Route("web-component")
+@Route("")
+@RouteAlias("web-component")
 @Menu(order = 1, icon = LineAwesomeIconUrl.SPACE_SHUTTLE_SOLID)
 public class WebComponentView extends VerticalLayout {
 

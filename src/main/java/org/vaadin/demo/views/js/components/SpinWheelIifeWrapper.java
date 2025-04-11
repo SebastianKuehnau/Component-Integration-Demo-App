@@ -1,4 +1,4 @@
-package org.vaadin.demo.views.js;
+package org.vaadin.demo.views.js.components;
 
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.Component;
@@ -19,14 +19,14 @@ import com.vaadin.flow.component.dependency.NpmPackage;
  */
 
 @NpmPackage(value = "spin-wheel", version = "^5.0.2")
-@JsModule("./components/spin-wheel/spin-wheel-wrapper.js")
-@Tag("spin-wheel-wrapper")
-public class SpinWheelWrapper extends Component implements HasSize {
+@JsModule("./components/spin-wheel/spin-wheel-iife-connector.js")
+@Tag("spin-wheel-iife-wrapper")
+public class SpinWheelIifeWrapper extends Component implements HasSize {
 
     /**
      * Constructs the SpinWheelWrapper component and sets its default size.
      */
-    public SpinWheelWrapper() {
+    public SpinWheelIifeWrapper() {
         setWidth("100px");
         setHeight("100px");
     }
@@ -40,7 +40,7 @@ public class SpinWheelWrapper extends Component implements HasSize {
         super.onAttach(attachEvent);
         // Initialize the wheel by calling the global JavaScript function 'init'.
         // This sets up the spin behavior and binds methods like 'spin' to this element.
-        getElement().executeJs("window.init($0)", this.getElement());
+        getElement().executeJs("window.init(this)");
     }
 
     /**
@@ -49,6 +49,6 @@ public class SpinWheelWrapper extends Component implements HasSize {
     public void spin() {
         // Call the 'spin' function that was attached to this element in the JavaScript init logic.
         // This triggers the actual spinning animation on this specific wheel instance.
-        this.getElement().callJsFunction("spin", (Math.random() * 1000 + 3000));
+        getElement().callJsFunction("spin", (Math.random() * 1000 + 3000));
     }
 }
