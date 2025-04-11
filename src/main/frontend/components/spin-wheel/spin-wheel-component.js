@@ -1,10 +1,11 @@
+import { Wheel } from 'spin-wheel';
 /**
  * This file defines a custom Web Component <spin-wheel-component>
  * that wraps the SpinWheel functionality using the 'spin-wheel' library.
  * The component can be used declaratively and exposes a public 'spin' method.
  */
 
- // Define the custom element class for the spin wheel
+  // Define the custom element class for the spin wheel
 class SpinWheelComponent extends HTMLElement {
 
   // Default properties used to initialize the wheel

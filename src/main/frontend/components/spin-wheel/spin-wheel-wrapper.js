@@ -1,3 +1,4 @@
+import {Wheel} from 'spin-wheel';
 /**
  * This file defines a simple JavaScript-based integration for the SpinWheel component.
  * It uses a global `init` function to create and configure the wheel instance,
