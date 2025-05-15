@@ -15,7 +15,7 @@ import {Wheel} from 'spin-wheel';
   const instances = new WeakMap();
 
   // Global init method to initialize a SpinWheel instance on a given element
-  window.init = (element) => {
+  window.initWheel = (element) => {
     // 2. Create the wheel in the container and initialise it with the props:
     const wheel = new Wheel(element, defaultProps);
     instances.set(element, wheel);

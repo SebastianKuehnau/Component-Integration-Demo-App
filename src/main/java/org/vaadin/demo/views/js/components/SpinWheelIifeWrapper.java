@@ -6,6 +6,7 @@ import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
+import com.vaadin.flow.component.html.Div;
 
 /**
  * A Java wrapper that connects to a JavaScript-initialized element using the Element API.
@@ -20,8 +21,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @NpmPackage(value = "spin-wheel", version = "^5.0.2")
 @JsModule("./components/spin-wheel/spin-wheel-iife-connector.js")
-@Tag("spin-wheel-iife-wrapper")
-public class SpinWheelIifeWrapper extends Component implements HasSize {
+public class SpinWheelIifeWrapper extends Div implements HasSize {
 
     /**
      * Constructs the SpinWheelWrapper component and sets its default size.
@@ -40,7 +40,7 @@ public class SpinWheelIifeWrapper extends Component implements HasSize {
         super.onAttach(attachEvent);
         // Initialize the wheel by calling the global JavaScript function 'init'.
         // This sets up the spin behavior and binds methods like 'spin' to this element.
-        getElement().executeJs("window.init(this)");
+        getElement().executeJs("window.initWheel(this)");
     }
 
     /**

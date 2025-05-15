@@ -2,6 +2,7 @@ package org.vaadin.demo.views.nativehtml;
 
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.html.*;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.router.Menu;
@@ -34,14 +35,14 @@ public class NativeHtmlView extends VerticalLayout {
         //Native HTML Components in Vaadin
         Input input = new Input();
         NativeButton button = new NativeButton("Click me", event ->
-                getElement().executeJs("alert('input value: " + input.getValue()+ "');"));
+                Notification.show("Clicked me with input value: " + input.getValue(), 3000, Notification.Position.MIDDLE));
         add(input, button);
 
         //Native HTML Component created with Element API
         Element canvas = new Element("canvas");
         canvas.getStyle().setBorder("1px solid #ccc");
         canvas.setAttribute("width", "200");
-        canvas.setAttribute("heidght", "100");
+        canvas.setAttribute("height", "100");
         canvas.setAttribute("id", "myCanvas");
 
         getElement().appendChild(canvas);

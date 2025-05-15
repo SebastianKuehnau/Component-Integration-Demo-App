@@ -7,7 +7,7 @@ import {Wheel} from 'spin-wheel';
  */
 
  // Global initializer function to attach a SpinWheel instance to the given DOM element
-window.init = (element) => {
+window.initWheel = (element) => {
   // Configure Wheel properties
   const props = {
     items: [{label: 'one'}, { label: 'two' }, { label: 'three' }]
