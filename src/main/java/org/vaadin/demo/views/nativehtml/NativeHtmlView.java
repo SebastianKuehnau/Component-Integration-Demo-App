@@ -59,7 +59,7 @@ public class NativeHtmlView extends VerticalLayout {
               const canvas = document.getElementById("myCanvas");
               const ctx = canvas.getContext("2d");
               const button = { x: 50, y: 30, width: 100, height: 40 };
-          
+        
               function drawButton() {
                 ctx.fillStyle = "#007bff";
                 ctx.fillRect(button.x, button.y, button.width, button.height);
@@ -67,12 +67,12 @@ public class NativeHtmlView extends VerticalLayout {
                 ctx.font = "16px sans-serif";
                 ctx.fillText("Click me", button.x + 15, button.y + 25);
               }
-          
+        
               canvas.addEventListener("click", function (e) {
                 const rect = canvas.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-          
+        
                 if (
                   x >= button.x &&
                   x <= button.x + button.width &&
@@ -82,7 +82,7 @@ public class NativeHtmlView extends VerticalLayout {
                   alert("Button clicked!");
                 }
               });
-          
+        
               drawButton();
 
         """);
