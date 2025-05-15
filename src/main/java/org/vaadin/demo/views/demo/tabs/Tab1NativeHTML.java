@@ -1,14 +1,12 @@
 package org.vaadin.demo.views.demo.tabs;
 
-import com.vaadin.flow.component.AttachEvent;
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.Element;
 
 public class Tab1NativeHTML extends VerticalLayout {
 
     public Tab1NativeHTML() {
-        /*** Canvas ***/
+        /* Canvas */
         Element canvas = new Element("canvas");
         canvas.setAttribute("id", "myCanvas");
         canvas.getStyle().setBorder("1px solid #000");

@@ -13,9 +13,8 @@ public class Tab2JsComponent extends VerticalLayout {
         add(helloWorldComponent);
         setSizeFull();
 
-        var button = new Button("Click me", event -> {
-                helloWorldComponent.setText("<p>Hello World from JS Component</p>");
-        });
+        var button = new Button("Click me", event ->
+                helloWorldComponent.setText("<p>Hello World from JS Component</p>"));
         add(button);
     }
 }
