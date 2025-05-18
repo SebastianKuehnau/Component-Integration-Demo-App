@@ -5,15 +5,15 @@ import "react-spin-wheel/dist/index.css"
 
 class ReactSpinWheelElement extends ReactAdapterElement {
   protected render(hooks: RenderHooks): React.ReactElement | null {
+
+    const [items, setItems] = hooks.useState<string[]>('items');
+    const onFinishSpinEvent = hooks.useCustomEvent<string>("onFinishSpin");
+
     return <SpinWheel
-      items={
-        ["United States", "Brazil", "India", "China", "Russia", "Australia", "Japan", "Canada", "France", "Germany"]
-      }
-      onFinishSpin={(item) => {
-        alert(item);
-      }}
-    />;
+      items={items}
+      onFinishSpin={result =>
+        onFinishSpinEvent(result as string)} />;
+    }
   }
-}
 
 customElements.define('react-spin-wheel', ReactSpinWheelElement);
