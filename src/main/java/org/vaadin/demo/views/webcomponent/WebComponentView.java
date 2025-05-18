@@ -18,8 +18,7 @@ import org.vaadin.lineawesome.LineAwesomeIconUrl;
  * a Java component that can be used like any other Vaadin UI element.
  */
 @PageTitle("Web Component")
-@Route("")
-@RouteAlias("web-component")
+@Route("web-component")
 @Menu(order = 1, icon = LineAwesomeIconUrl.SPACE_SHUTTLE_SOLID)
 public class WebComponentView extends VerticalLayout {
 
