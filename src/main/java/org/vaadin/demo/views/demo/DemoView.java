@@ -24,6 +24,7 @@ public class DemoView extends VerticalLayout {
         tabSheet.add("JS Component", new Tab2JsComponent());
         tabSheet.add("React Component", new Tab3ReactComponent());
         tabSheet.add("Web Component", new Tab4WebComponent());
+        tabSheet.add("Extended JS Component", new Tab6ExtJsComponent());
 
         add(tabSheet);
     }
