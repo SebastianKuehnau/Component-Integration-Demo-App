@@ -1,0 +1,12 @@
+/* ── Shoelace Range (Web Component) ── */
+sl-range {
+    /* https://shoelace.style/getting-started/customizing#custom-properties */
+    --sl-color-primary-600: var(--lumo-primary-color);   /* Thumb default */
+    --sl-color-primary-500: var(--lumo-primary-color);   /* Thumb hover */
+    --sl-color-primary-400: var(--lumo-primary-color);   /* Thumb active/pressed */
+    /* https://shoelace.style/components/range#custom-properties */
+    --track-color-inactive: var(--lumo-contrast-10pct);
+    --track-color-active: var(--lumo-contrast-40pct);
+    --track-height: 6px;
+    --thumb-size: 20px;
+}

@@ -1,0 +1,38 @@
+/* ── noUiSlider (Vanilla JS) ── */
+
+/* Track: remove default border/shadow, set unfilled color */
+nouislider-element .noUi-target {
+    background: var(--lumo-contrast-10pct);
+    border: none;
+    box-shadow: none;
+    border-radius: 3px;
+}
+
+/* Track height (override default 18px) */
+nouislider-element .noUi-horizontal {
+    height: 6px;
+}
+
+/* Filled track portion */
+nouislider-element .noUi-connect {
+    background: var(--lumo-contrast-40pct);
+}
+
+/* Thumb */
+nouislider-element .noUi-horizontal .noUi-handle {
+    background: var(--lumo-primary-color);
+    border: none;
+    box-shadow: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    top: -7px;
+    right: -10px;
+    cursor: pointer;
+}
+
+/* Remove default grip lines inside thumb */
+nouislider-element .noUi-handle::before,
+nouislider-element .noUi-handle::after {
+    display: none;
+}

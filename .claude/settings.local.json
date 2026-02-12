@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__vaadin__search_vaadin_docs",
+      "mcp__vaadin__get_component_styling",
+      "WebFetch(domain:shoelace.style)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebSearch"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "Vaadin",
+    "playwright"
+  ]
+}
