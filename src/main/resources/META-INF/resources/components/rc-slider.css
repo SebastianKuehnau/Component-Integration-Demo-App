@@ -1,0 +1,38 @@
+/* ── rc-slider (React) ── */
+
+/* Track unfilled (rail) */
+rc-slider .rc-slider-rail {
+    background-color: var(--lumo-contrast-10pct);
+    height: 6px;
+    border-radius: 3px;
+}
+
+/* Track filled */
+rc-slider .rc-slider-track {
+    background-color: var(--lumo-contrast-40pct);
+    height: 6px;
+    border-radius: 3px;
+}
+
+/* Thumb */
+rc-slider .rc-slider-handle {
+    width: 20px;
+    height: 20px;
+    margin-top: -7px;
+    border: none;
+    background-color: var(--lumo-primary-color);
+    opacity: 1;
+}
+
+rc-slider .rc-slider-handle:hover,
+rc-slider .rc-slider-handle:focus {
+    border-color: var(--lumo-primary-color);
+    background-color: var(--lumo-primary-color);
+    box-shadow: 0 0 0 4px var(--lumo-primary-color-10pct);
+}
+
+rc-slider .rc-slider-handle:active {
+    border-color: var(--lumo-primary-color);
+    background-color: var(--lumo-primary-color);
+    box-shadow: 0 0 0 6px var(--lumo-primary-color-10pct);
+}
