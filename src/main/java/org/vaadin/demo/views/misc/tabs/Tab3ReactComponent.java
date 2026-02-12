@@ -1,7 +1,7 @@
-package org.vaadin.demo.views.demo.tabs;
+package org.vaadin.demo.views.misc.tabs;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import org.vaadin.demo.views.demo.components.SwitchComponent;
+import org.vaadin.demo.views.misc.components.SwitchComponent;
 
 public class Tab3ReactComponent extends VerticalLayout {
 

@@ -21,11 +21,11 @@ export class FeedbackForm extends HTMLElement {
         }));
 
         //Option Two
-        // let greetingPromise = this.$server.getGreeting("JavaScript");
-        // greetingPromise.then(greeting => {
-        //   this.querySelector('.thanks').removeAttribute("hidden");
-        //   alert(greeting + " from Client Side");
-        // });
+        let greetingPromise = this.$server.getGreeting("JavaScript");
+        greetingPromise.then(greeting => {
+          this.querySelector('.thanks').removeAttribute("hidden");
+          alert(greeting + " from Client Side");
+        });
       });
     });
   }

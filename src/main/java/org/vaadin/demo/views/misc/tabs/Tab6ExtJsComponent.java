@@ -1,8 +1,8 @@
-package org.vaadin.demo.views.demo.tabs;
+package org.vaadin.demo.views.misc.tabs;
 
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import org.vaadin.demo.views.demo.components.FeedbackForm;
+import org.vaadin.demo.views.misc.components.FeedbackForm;
 
 public class Tab6ExtJsComponent extends VerticalLayout {
 

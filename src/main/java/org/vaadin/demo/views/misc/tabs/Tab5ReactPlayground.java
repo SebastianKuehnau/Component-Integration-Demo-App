@@ -1,10 +1,10 @@
-package org.vaadin.demo.views.demo.tabs;
+package org.vaadin.demo.views.misc.tabs;
 
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import org.vaadin.demo.views.demo.components.SpinWheelComponent;
+import org.vaadin.demo.views.misc.components.SpinWheelComponent;
 
 import java.util.List;
 

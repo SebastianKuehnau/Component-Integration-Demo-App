@@ -1,8 +1,8 @@
-package org.vaadin.demo.views.demo.tabs;
+package org.vaadin.demo.views.misc.tabs;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import org.vaadin.demo.views.demo.components.HelloWorldComponent;
+import org.vaadin.demo.views.misc.components.HelloWorldComponent;
 
 
 public class Tab2JsComponent extends VerticalLayout {

@@ -1,4 +1,4 @@
-package org.vaadin.demo.views.demo.components;
+package org.vaadin.demo.views.misc.components;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasSize;

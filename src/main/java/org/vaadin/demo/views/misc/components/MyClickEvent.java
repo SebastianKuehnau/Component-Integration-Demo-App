@@ -1,9 +1,8 @@
-package org.vaadin.demo.views.demo.components;
+package org.vaadin.demo.views.misc.components;
 
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.EventData;
-import com.vaadin.flow.component.html.NativeButton;
 
 @DomEvent("button-clicked")
 public class MyClickEvent extends ComponentEvent<FeedbackForm> {

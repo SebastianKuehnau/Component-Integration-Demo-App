@@ -1,4 +1,4 @@
-package org.vaadin.demo.views.demo.tabs;
+package org.vaadin.demo.views.misc.tabs;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.Element;
