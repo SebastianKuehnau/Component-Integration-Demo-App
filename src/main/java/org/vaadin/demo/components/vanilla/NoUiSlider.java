@@ -43,6 +43,15 @@ public class NoUiSlider extends Component implements HasSize {
         return getElement().getProperty("value", 0);
     }
 
+    public void reset() {
+        getElement().callJsFunction("reset");
+    }
+
+    public void onUpdate() {
+        getElement().addEventListener("update", event ->
+                System.out.println(event.getEventData().get("event.detail").asString()));
+    }
+
     public Registration addValueChangeListener(ComponentEventListener<SliderChangeEvent> listener) {
         return addListener(SliderChangeEvent.class, listener);
     }

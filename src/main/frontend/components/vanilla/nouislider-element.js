@@ -76,6 +76,10 @@ class NoUiSliderElement extends HTMLElement {
         this._step = parseInt(val) || 1;
     }
 
+    reset() {
+        this._slider.reset();
+    }
+
     disconnectedCallback() {
         if (this._slider) {
             this._slider.destroy();

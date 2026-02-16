@@ -1,5 +1,6 @@
 package org.vaadin.demo.views.demo;
 
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.html.Span;
@@ -36,7 +37,9 @@ public class IntegrationView extends VerticalLayout {
         noUiSlider.addValueChangeListener(event ->
                 noUiSliderLabel.setText(CURRENT_VALUE_PREFIX + event.getValue()));
         noUiSlider.setValue(50);
+        noUiSlider.onUpdate();
         noUiSlider.setWidthFull();
+        add(new Button("reset", event -> noUiSlider.reset()));
 
         // --- React: RcSlider ---
         var rcSliderLabel = new Span(CURRENT_VALUE_PREFIX + 50);
