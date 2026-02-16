@@ -4,6 +4,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.*;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -39,8 +40,6 @@ public class SimpleView extends VerticalLayout {
         /*** Vaadin Addon Directory ***/
         add(new H1("Vaadin Addon Directory"));
         add(new Anchor("https://vaadin.com/directory", createLinkButton("visit the Vaadin Addon Directory")), new Hr());
-
-
     }
 
     private Element createSimpleSelect() {
@@ -50,12 +49,18 @@ public class SimpleView extends VerticalLayout {
         select.appendChild(new Element("option").setAttribute("value", "2").setText("Two"));
         select.appendChild(new Element("option").setAttribute("value", "3").setText("Three"));
 
+        select.addEventListener("input", event -> {
+            var value = event.getEventData().get("element.value").asString();
+            Notification.show("Selected Value: " + value);
+        }).addEventData("element.value");
+
         return select;
     }
 
     private Input createSimpleInput() {
         var input = new Input();
         input.setPlaceholder("your name");
+
         return input;
     }
 

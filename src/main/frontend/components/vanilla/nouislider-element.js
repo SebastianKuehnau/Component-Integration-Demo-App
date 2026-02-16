@@ -16,6 +16,7 @@ class NoUiSliderElement extends HTMLElement {
         this.appendChild(container);
 
         this._slider = noUiSlider.create(container, {
+            //Configuration
             start: [this._value],
             step: this._step,
             connect: [true, false],
@@ -81,5 +82,6 @@ class NoUiSliderElement extends HTMLElement {
             this._slider = null;
         }
     }
+    //Getter and Setter
 }
 customElements.define('nouislider-element', NoUiSliderElement);

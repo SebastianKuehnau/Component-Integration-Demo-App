@@ -1,7 +1,4 @@
 class HelloWorld extends HTMLElement {
-    constructor() {
-        super();
-    }
 
     connectedCallback() {
         this.innerHTML = 'Hello World';

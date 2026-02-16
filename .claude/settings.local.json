@@ -5,7 +5,8 @@
       "mcp__vaadin__get_component_styling",
       "WebFetch(domain:shoelace.style)",
       "WebFetch(domain:www.npmjs.com)",
-      "WebSearch"
+      "WebSearch",
+      "mcp__vaadin__get_full_document"
     ]
   },
   "enableAllProjectMcpServers": true,

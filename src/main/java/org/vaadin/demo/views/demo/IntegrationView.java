@@ -1,15 +1,12 @@
 package org.vaadin.demo.views.demo;
 
-import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.html.Span;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.RouteAlias;
 import org.vaadin.demo.components.react.RcSlider;
 import org.vaadin.demo.components.vanilla.NoUiSlider;
 import org.vaadin.demo.components.webcomponents.ShoelaceRange;
@@ -47,6 +44,7 @@ public class IntegrationView extends VerticalLayout {
         rcSlider.addValueChangeListener(value ->
                 rcSliderLabel.setText(CURRENT_VALUE_PREFIX + value));
         rcSlider.setValue(50);
+        add(rcSlider);
 
         // --- Web Component: ShoelaceRange ---
         var shoelaceLabel = new Span(CURRENT_VALUE_PREFIX + 50);

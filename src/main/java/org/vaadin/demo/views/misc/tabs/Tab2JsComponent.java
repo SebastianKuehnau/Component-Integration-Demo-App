@@ -8,7 +8,7 @@ import org.vaadin.demo.views.misc.components.HelloWorldComponent;
 public class Tab2JsComponent extends VerticalLayout {
 
     public Tab2JsComponent() {
-        HelloWorldComponent helloWorldComponent = new HelloWorldComponent();
+        var helloWorldComponent = new HelloWorldComponent();
         helloWorldComponent.setSizeFull();
         add(helloWorldComponent);
         setSizeFull();

@@ -11,14 +11,6 @@ import com.vaadin.flow.shared.Registration;
 @Tag("nouislider-element")
 public class NoUiSlider extends Component implements HasSize {
 
-    public NoUiSlider() {
-
-        getElement().setProperty("value", 0);
-        getElement().setProperty("min", 0);
-        getElement().setProperty("max", 100);
-        getElement().setProperty("step", 1);
-    }
-
     public void setMin(int min) {
         getElement().setProperty("min", min);
     }
@@ -45,7 +37,6 @@ public class NoUiSlider extends Component implements HasSize {
 
     public void setValue(Integer value) {
         getElement().setProperty("value", value);
-        fireEvent(new SliderChangeEvent(this, false, value));
     }
 
     public int getValue() {

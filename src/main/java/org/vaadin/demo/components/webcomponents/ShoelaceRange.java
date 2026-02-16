@@ -51,21 +51,11 @@ public class ShoelaceRange
         return STEP_PROPERTY.get(this);
     }
 
-//    Not necessary because this behavior comes implicitly from AbstractSinglePropertyField
-//    public void setValue(int value) {
-//        getElement().setProperty("value", value);
-//    }
-//
-//    @Synchronize("sl-change")
-//    public Integer getValue() {
-//        return getElement().getProperty("value", 0);
-//    }
-
     public void addSliderChangeValue(ComponentEventListener<ShoelaceRangeChangeEvent> listener) {
         addListener(ShoelaceRangeChangeEvent.class, listener);
     }
 
-    @DomEvent("sl-change")
+    @DomEvent("sl-input")
     public static class ShoelaceRangeChangeEvent extends ComponentEvent<ShoelaceRange> {
 
         private final Integer value;

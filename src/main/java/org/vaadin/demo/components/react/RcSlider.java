@@ -32,7 +32,7 @@ public class RcSlider extends ReactAdapterComponent implements HasSize {
 
     public void setValue(int value) {
         setState("sliderValue", value);
-        fireValueChangeListeners(value);
+//        fireValueChangeListeners(value);
     }
 
     public void setMin(int min) {
@@ -60,11 +60,9 @@ public class RcSlider extends ReactAdapterComponent implements HasSize {
     }
 
     public void addValueChangeListener(SerializableConsumer<Integer> listener) {
-        addStateChangeListener("step", Number.class, step -> Notification.show("Current step value: " + step));
-
         addStateChangeListener("sliderValue", Number.class,
                 number -> listener.accept(number.intValue()));
-        valueChangeListeners.add(listener);
+//        valueChangeListeners.add(listener);
     }
 
     private void fireValueChangeListeners(int value) {
