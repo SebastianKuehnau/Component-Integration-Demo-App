@@ -20,4 +20,20 @@ public class FeedbackForm extends Component implements HasSize {
         Notification.show("Hello " + name.toUpperCase() + " from Server Side");
         return "Hello " + name.toLowerCase();
     }
+
+    @DomEvent("button-clicked")
+    public static class MyClickEvent extends ComponentEvent<FeedbackForm> {
+        private final String value;
+
+        public MyClickEvent(FeedbackForm source,
+                            boolean fromClient,
+                            @EventData("event.detail.value") String value) {
+            super(source, fromClient);
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
 }
