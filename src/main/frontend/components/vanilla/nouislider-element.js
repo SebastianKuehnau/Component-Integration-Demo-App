@@ -77,6 +77,7 @@ class NoUiSliderElement extends HTMLElement {
     }
 
     reset() {
+        console.log("Resetting slider");
         this._slider.reset();
     }
 

@@ -1,15 +1,21 @@
 package org.vaadin.demo.components.vanilla;
 
 import com.vaadin.flow.component.*;
-import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
+import com.vaadin.flow.dom.DebouncePhase;
 import com.vaadin.flow.shared.Registration;
 
 @NpmPackage(value = "nouislider", version = "15.8.1")
 @JsModule("./components/vanilla/nouislider-element.js")
 @Tag("nouislider-element")
 public class NoUiSlider extends Component implements HasSize {
+
+    public NoUiSlider() {
+        //syncs the "value" property from browser to server on each "value-change" event
+        getElement().addPropertyChangeListener("value", "value-changed",
+                event -> {});
+    }
 
     public void setMin(int min) {
         getElement().setProperty("min", min);
@@ -35,34 +41,27 @@ public class NoUiSlider extends Component implements HasSize {
         return getElement().getProperty("step", 1);
     }
 
+
+    public Integer getValue() {
+        return getElement().getProperty("value", 0);
+    }
+
     public void setValue(Integer value) {
         getElement().setProperty("value", value);
     }
 
-    public int getValue() {
-        return getElement().getProperty("value", 0);
+    public Registration addValueChangeListener(ComponentEventListener<SliderValueChangeEvent> listener) {
+        return addListener(SliderValueChangeEvent.class, listener);
     }
 
-    public void reset() {
-        getElement().callJsFunction("reset");
-    }
-
-    public void onUpdate() {
-        getElement().addEventListener("update", event ->
-                System.out.println(event.getEventData().get("event.detail").asString()));
-    }
-
-    public Registration addValueChangeListener(ComponentEventListener<SliderChangeEvent> listener) {
-        return addListener(SliderChangeEvent.class, listener);
-    }
-
-    @DomEvent("value-changed")
-    public static class SliderChangeEvent extends ComponentEvent<NoUiSlider> {
+    @DomEvent(value = "value-changed", debounce = @DebounceSettings
+            (timeout = 250, phases = DebouncePhase.INTERMEDIATE))
+    public static class SliderValueChangeEvent extends ComponentEvent<NoUiSlider> {
         private final Integer value;
 
-        public SliderChangeEvent(NoUiSlider source,
-                                 boolean fromClient,
-                                 @EventData("event.detail.value") Integer value) {
+        public SliderValueChangeEvent(NoUiSlider source,
+                                      boolean fromClient,
+                                      @EventData("event.detail.value") Integer value) {
             super(source, fromClient);
             this.value = value;
         }

@@ -1,0 +1,45 @@
+/* ── noUiSlider JS connector variant ──
+   The slider is created directly on the host element, so .noUi-target
+   IS the host element itself — use nouislider-js-element.noUi-target
+   (no space = same element) instead of descendant selectors.            */
+
+nouislider-js-element {
+    margin-top: 24px;
+}
+
+/* Track: remove default border/shadow, set unfilled color */
+nouislider-js-element.noUi-target {
+    background: var(--lumo-contrast-10pct);
+    border: none;
+    box-shadow: none;
+    border-radius: 3px;
+}
+
+/* Track height (override default 18px) */
+nouislider-js-element.noUi-horizontal {
+    height: 6px;
+}
+
+/* Filled track portion */
+nouislider-js-element .noUi-connect {
+    background: var(--lumo-contrast-40pct);
+}
+
+/* Thumb */
+nouislider-js-element.noUi-horizontal .noUi-handle {
+    background: var(--lumo-primary-color);
+    border: none;
+    box-shadow: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    top: -7px;
+    right: -10px;
+    cursor: pointer;
+}
+
+/* Remove default grip lines inside thumb */
+nouislider-js-element .noUi-handle::before,
+nouislider-js-element .noUi-handle::after {
+    display: none;
+}
