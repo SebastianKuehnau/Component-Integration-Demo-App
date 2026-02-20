@@ -9,6 +9,7 @@ import com.vaadin.flow.router.RouteAlias;
 import org.vaadin.demo.views.misc.tabs.*;
 import org.vaadin.lineawesome.LineAwesomeIconUrl;
 
+// Tab-based showcase of different integration patterns (one pattern per tab).
 @PageTitle("Misc Components Demo View")
 @Menu(title = "Misc Components Demo View", order = 3, icon = LineAwesomeIconUrl.FILM_SOLID)
 @Route("demo")

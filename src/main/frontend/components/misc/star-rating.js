@@ -1,3 +1,5 @@
+// Vanilla JS custom element: interactive star rating widget.
+// Java counterpart: StarRatingComponent.java
 class StarRating extends HTMLElement {
 
     static get observedAttributes() {

@@ -3,10 +3,12 @@ package org.vaadin.demo.views.misc.tabs;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.Element;
 
+// Pattern: Native HTML via Vaadin's Element API — no JS file needed.
+// Creates a <canvas> and draws on it using inline executeJs().
 public class Tab1NativeHTML extends VerticalLayout {
 
     public Tab1NativeHTML() {
-        /* Canvas */
+        // Build a raw <canvas> element and configure it from Java
         Element canvas = new Element("canvas");
         canvas.setAttribute("id", "myCanvas");
         canvas.getStyle().setBorder("1px solid #000");

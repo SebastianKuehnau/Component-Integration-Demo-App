@@ -1,3 +1,5 @@
+// Custom element demonstrating two JS→Java communication patterns.
+// Java counterpart: FeedbackForm.java
 export class FeedbackForm extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -15,12 +17,12 @@ export class FeedbackForm extends HTMLElement {
 
     this.querySelectorAll('button').forEach(btn => {
       btn.addEventListener('click', (event) => {
-        //Option One
+        // Option 1: Fire a CustomEvent — picked up by @DomEvent("button-clicked") in Java
         this.dispatchEvent(new CustomEvent("button-clicked",  {
           detail: { value: event.target.getAttribute("data-value") }
         }));
 
-        //Option Two
+        // Option 2: Call a @ClientCallable Java method directly via this.$server
         let greetingPromise = this.$server.getGreeting("JavaScript");
         greetingPromise.then(greeting => {
           this.querySelector('.thanks').removeAttribute("hidden");
@@ -30,6 +32,7 @@ export class FeedbackForm extends HTMLElement {
     });
   }
 
+  // Called from Java via getElement().callJsFunction("setValue", ...)
   setValue(value) {
     this.querySelector('.thanks').removeAttribute("hidden");
     alert(value + " from Client Side");

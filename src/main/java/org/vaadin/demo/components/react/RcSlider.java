@@ -11,6 +11,8 @@ import com.vaadin.flow.function.SerializableConsumer;
 import java.util.ArrayList;
 import java.util.List;
 
+// React adapter with full bidirectional state sync via setState()/getState().
+// The TSX side (rc-slider.tsx) reads state with hooks.useState() and writes back via setter.
 @NpmPackage(value = "rc-slider", version = "11.1.8")
 @JsModule("./components/react/rc-slider.tsx")
 @Tag("rc-slider")
@@ -32,7 +34,6 @@ public class RcSlider extends ReactAdapterComponent implements HasSize {
 
     public void setValue(int value) {
         setState("sliderValue", value);
-//        fireValueChangeListeners(value);
     }
 
     public void setMin(int min) {
@@ -59,10 +60,10 @@ public class RcSlider extends ReactAdapterComponent implements HasSize {
         return getState("step", Number.class).intValue();
     }
 
+    // React → Java: notified when React calls setSliderValue() in the TSX
     public void addValueChangeListener(SerializableConsumer<Integer> listener) {
         addStateChangeListener("sliderValue", Number.class,
                 number -> listener.accept(number.intValue()));
-//        valueChangeListeners.add(listener);
     }
 
     private void fireValueChangeListeners(int value) {

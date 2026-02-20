@@ -7,6 +7,8 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.PropertyDescriptor;
 import com.vaadin.flow.component.PropertyDescriptors;
 
+// Third-party Web Component wrapper using AbstractSinglePropertyField for automatic
+// value synchronization. No custom JS needed — Shoelace provides <sl-range>.
 @NpmPackage(value = "@shoelace-style/shoelace", version = "2.20.1")
 @JsModule("@shoelace-style/shoelace/dist/components/range/range.js")
 @CssImport("@shoelace-style/shoelace/dist/themes/light.css")
@@ -15,6 +17,7 @@ public class ShoelaceRange
         extends AbstractSinglePropertyField<ShoelaceRange, Integer>
         implements HasSize {
 
+    // PropertyDescriptors declaratively bind Java getters/setters to element properties
     private static final PropertyDescriptor<Integer, Integer> MIN_PROPERTY =
             PropertyDescriptors.propertyWithDefault("min", 0);
     private static final PropertyDescriptor<Integer, Integer> MAX_PROPERTY =

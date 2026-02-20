@@ -34,6 +34,7 @@ public class MainLayout extends AppLayout implements AfterNavigationObserver {
         addHeaderContent();
     }
 
+    // Top navbar: hamburger toggle + dynamic page title
     private void addHeaderContent() {
         DrawerToggle toggle = new DrawerToggle();
         toggle.setAriaLabel("Menu toggle");
@@ -54,6 +55,7 @@ public class MainLayout extends AppLayout implements AfterNavigationObserver {
         addToDrawer(header, scroller, createFooter());
     }
 
+    // Auto-populates nav items from @Menu annotations on all @Route views
     private SideNav createNavigation() {
         SideNav nav = new SideNav();
 

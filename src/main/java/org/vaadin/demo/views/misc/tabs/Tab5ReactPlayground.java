@@ -8,6 +8,8 @@ import org.vaadin.demo.views.misc.components.SpinWheelComponent;
 
 import java.util.List;
 
+// Pattern: React component with bidirectional state (setState) and custom events.
+// Demonstrates combining a Vaadin ComboBox with a React SpinWheel.
 public class Tab5ReactPlayground extends VerticalLayout {
 
     public Tab5ReactPlayground() {

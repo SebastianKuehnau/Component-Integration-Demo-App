@@ -1,3 +1,5 @@
+// Minimal React adapter element — renders a MUI Switch with no state exchange.
+// Java counterpart: SwitchComponent.java
 import { Switch } from '@mui/material';
 import { ReactAdapterElement, RenderHooks } from 'Frontend/generated/flow/ReactAdapter';
 import React, { ReactElement } from 'react';

@@ -6,13 +6,15 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.dom.DebouncePhase;
 import com.vaadin.flow.shared.Registration;
 
+// Vanilla JS library wrapped as a custom element (nouislider-element.js).
+// Java communicates via element properties; JS fires CustomEvents back.
 @NpmPackage(value = "nouislider", version = "15.8.1")
 @JsModule("./components/vanilla/nouislider-element.js")
 @Tag("nouislider-element")
 public class NoUiSlider extends Component implements HasSize {
 
     public NoUiSlider() {
-        //syncs the "value" property from browser to server on each "value-change" event
+        // Syncs the "value" property from browser→server on each "value-changed" event
         getElement().addPropertyChangeListener("value", "value-changed",
                 event -> {});
     }
@@ -54,6 +56,7 @@ public class NoUiSlider extends Component implements HasSize {
         return addListener(SliderValueChangeEvent.class, listener);
     }
 
+    // Debounced to avoid flooding the server during rapid slider drags
     @DomEvent(value = "value-changed", debounce = @DebounceSettings
             (timeout = 250, phases = DebouncePhase.INTERMEDIATE))
     public static class SliderValueChangeEvent extends ComponentEvent<NoUiSlider> {

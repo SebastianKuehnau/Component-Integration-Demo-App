@@ -19,6 +19,7 @@ import java.util.List;
 @RouteAlias("")
 @Route("simple-demo")
 @Menu(order = 0, icon = LineAwesomeIconUrl.VAADIN)
+// Compares three ways to build UI: Vaadin components, native HTML, and addons.
 public class SimpleView extends VerticalLayout {
 
     public SimpleView() {
@@ -42,6 +43,7 @@ public class SimpleView extends VerticalLayout {
         add(new Anchor("https://vaadin.com/directory", createLinkButton("visit the Vaadin Addon Directory")), new Hr());
     }
 
+    // Build a native <select> using the low-level Element API with event listener
     private Element createSimpleSelect() {
         var select = new Element("select");
 

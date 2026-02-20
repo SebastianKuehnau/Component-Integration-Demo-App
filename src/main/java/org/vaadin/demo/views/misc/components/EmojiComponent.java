@@ -5,6 +5,8 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.shared.Registration;
 
+// Wraps a third-party npm Web Component — no custom JS file needed.
+// @NpmPackage installs the package, @JsModule loads it, @Tag maps to its HTML tag.
 @NpmPackage(value = "emoji-picker-element", version = "^1.26.3")
 @JsModule("emoji-picker-element/index.js")
 @Tag("emoji-picker")

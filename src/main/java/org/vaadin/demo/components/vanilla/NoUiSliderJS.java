@@ -6,8 +6,10 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 import java.util.function.Consumer;
 
+// Alternative approach: JS connector + executeJs instead of a custom element.
+// The connector (nouislider-connector.js) only exposes the library factory to window.
+// All setup logic lives in Java's onAttach() via executeJs().
 @NpmPackage(value = "nouislider", version = "15.8.1")
-// This tiny JS exposes methods from JS module to the element/host page
 @JsModule("./components/vanilla/nouislider-connector.js")
 @Tag("nouislider-js-element")
 public class NoUiSliderJS extends Component implements HasSize {
@@ -25,6 +27,7 @@ public class NoUiSliderJS extends Component implements HasSize {
         setMinWidth("200px");
     }
 
+    // Create the slider in the browser once the element is attached to the DOM
     @Override
     protected void onAttach(AttachEvent attachEvent) {
         super.onAttach(attachEvent);
@@ -43,6 +46,7 @@ public class NoUiSliderJS extends Component implements HasSize {
                 """, value, range);
     }
 
+    // JS → Java: called from browser via this.$server.receiveValue()
     @ClientCallable
     void receiveValue(double d) {
         value = d;

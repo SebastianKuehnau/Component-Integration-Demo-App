@@ -16,6 +16,8 @@ import org.vaadin.lineawesome.LineAwesomeIconUrl;
 @PageTitle("Custom Element Demo")
 @Route("custom-component")
 @Menu(order = 1, icon = LineAwesomeIconUrl.STAR_SOLID)
+// Demonstrates a simple custom element with bidirectional communication.
+// See MyCustomElement.java and my-custom-element.js.
 public class CustomComponentView extends VerticalLayout {
 
     public CustomComponentView() {

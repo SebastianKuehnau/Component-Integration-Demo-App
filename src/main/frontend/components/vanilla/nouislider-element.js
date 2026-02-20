@@ -1,3 +1,5 @@
+// Wraps the nouislider npm library as a standard custom element (<nouislider-element>).
+// Java counterpart: NoUiSlider.java — communicates via properties and CustomEvents.
 import noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 
@@ -26,6 +28,7 @@ class NoUiSliderElement extends HTMLElement {
             }
         });
 
+        // Dispatch a CustomEvent on each change — Java's @DomEvent picks this up
         const handleUpdate = (values) => {
             this._value = parseInt(values[0]);
             this.dispatchEvent(new CustomEvent('value-changed', {
@@ -43,6 +46,7 @@ class NoUiSliderElement extends HTMLElement {
         return this._value;
     }
 
+    // Called when Java sets the "value" property via setProperty()
     set value(val) {
         const intVal = parseInt(val) || 0;
 
@@ -81,6 +85,7 @@ class NoUiSliderElement extends HTMLElement {
         this._slider.reset();
     }
 
+    // Clean up the slider instance when the element is removed from the DOM
     disconnectedCallback() {
         if (this._slider) {
             this._slider.destroy();
