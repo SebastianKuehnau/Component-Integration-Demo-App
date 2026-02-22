@@ -58,7 +58,7 @@ public class NoUiSlider extends Component implements HasSize {
 
     // Debounced to avoid flooding the server during rapid slider drags
     @DomEvent(value = "value-changed", debounce = @DebounceSettings
-            (timeout = 250, phases = DebouncePhase.INTERMEDIATE))
+            (timeout = 100, phases = DebouncePhase.INTERMEDIATE))
     public static class SliderValueChangeEvent extends ComponentEvent<NoUiSlider> {
         private final Integer value;
 
